@@ -16,10 +16,7 @@ import com.algaworks.gestaofesta.repository.Convidados;
 @RequestMapping("/")
 public class TabuadaController {
 
-	@RequestMapping("/home")
-	public String home(){
-		return "home";
-	}
+	
 
 	@RequestMapping("/tabuada")
 	public ModelAndView tabuada(@ModelAttribute("tf") TabuadaForm tf){

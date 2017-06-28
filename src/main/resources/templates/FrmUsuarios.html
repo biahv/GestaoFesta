@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width" />
-<title>Lista de Convidados</title>
-<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
-<link th:href="@{/css/bootstrap-theme.min.css}" rel="stylesheet" />
-</head>
-<body>
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="LayoutPadrao">
+
+<section layout:fragment="conteudo">
+	<div layout:include="MensagemGeral"></div>
 
 	<form class="form-horizontal" method="POST" th:action="@{/usuarios}"
 		th:object="${usuario}">
@@ -48,8 +45,7 @@
 
 				<div class="form-group"
 					th:classappend="${#fields.hasErrors('dtNasc')} ? has-error">
-					<label for="dtNasc" class="col-sm-2 control-label">Dt
-						Nascto</label>
+					<label for="dtNasc" class="col-sm-2 control-label">Data Nascimento</label>
 					<div class="col-sm-2">
 						<input type="text" class="form-control" id="dtNasc"
 							th:field="*{dtNasc}" />
@@ -75,5 +71,5 @@
 
 
 
-</body>
+</section>
 </html>
