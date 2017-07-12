@@ -3,6 +3,9 @@ package com.algaworks.gestaofesta.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 
@@ -11,7 +14,9 @@ public class Convidado {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@NotEmpty(message="Nome obrigatório!")
 	private String nome;
+	@NotNull(message="Quantidade de Acompanhante obrigatório!")
 	private Integer quantidadeAcompanhantes;
 	
 	public Long getId() {

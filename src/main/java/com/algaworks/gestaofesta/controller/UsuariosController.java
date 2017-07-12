@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,10 +41,24 @@ public class UsuariosController {
 	}
 	
 	@PostMapping("")
+	public ModelAndView salvar(@Validated Usuario usuario, Errors erros, RedirectAttributes redirectAttributes){
+		ModelAndView mv = new ModelAndView("FrmUsuarios");
+		mv.addObject("usuarios", usuarios.findAll());
+		if(erros.hasErrors()){
+			return mv;
+		}
+		try{
+			this.usuarios.save(usuario);
+			return new ModelAndView("redirect:usuarios");
+		}catch(Exception e){return mv;}
+		
+	}
+	
+	/*@PostMapping("")
 	public String salvar(Usuario usuario) {
 		this.usuarios.save(usuario);
 		return "redirect:/usuarios";
-	}
+	}*/
 	
 	@RequestMapping(value ="/excluir/{idUsuario}")
 	public String excluirConvidadoByPathVariable(@PathVariable Long idUsuario, HttpServletRequest request, 
