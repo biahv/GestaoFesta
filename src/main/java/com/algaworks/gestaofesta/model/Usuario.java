@@ -1,10 +1,13 @@
 package com.algaworks.gestaofesta.model;
 
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMax;
@@ -39,6 +42,9 @@ public class Usuario {
 	@NumberFormat(pattern = "#,##0.00")
 	private Float salario;
 	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	private Set<Festa> festas;
+	
 	public Long getIdUsuario() {
 		return idUsuario;
 	}
@@ -69,4 +75,11 @@ public class Usuario {
 	public void setSalario(Float salario) {
 		this.salario = salario;
 	}
+	public Set<Festa> getFestas() {
+		return festas;
+	}
+	public void setFestas(Set<Festa> festas) {
+		this.festas = festas;
+	}
+	
 }

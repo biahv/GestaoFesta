@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.algaworks.gestaofesta.model.Convidado;
 import com.algaworks.gestaofesta.model.Usuario;
 import com.algaworks.gestaofesta.repository.Usuarios;
 

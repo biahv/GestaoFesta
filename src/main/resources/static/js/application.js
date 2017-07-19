@@ -1,7 +1,7 @@
 
 $(function() {
 	$('[rel="tooltip"]').tooltip();
-	$('.js-currency').maskMoney({decimal: ',', thousands: '.', allowZero: true});
+	$('.js-currency').maskMoney({decimal: '.', thousands: ',', allowZero: true});
 	
 	$('.date').mask('11/11/1111');
     $('.time').mask('00:00:00');
