@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,6 +24,7 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue
+	@Column(name="id_usuario")
 	private Long idUsuario;
 	@NotEmpty(message="Nome obrigatório!")
 	private String nome;
